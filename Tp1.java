@@ -124,7 +124,7 @@ public class Tp1 {
 
 	public static void exercice4_1() {
 		int rand = (int) (Math.random() * 101);
-		System.out.println(rand);
+		// System.out.println(rand); Pour vérifier que mon code marche
 		System.out.print("Enter un nombre : ");
 		int guess = scanner.nextInt();
 		int cpt = 0;
@@ -132,17 +132,17 @@ public class Tp1 {
 		while (guess != rand) {
 			if (Math.abs(guess-rand) >= 20) {
 				System.out.println("-----> froid");
-				cpt++;
 			} else if (Math.abs(guess-rand) < 20 && Math.abs(guess-rand) >= 6) {
 				System.out.println("-----> tiède");
-				cpt++;
 			} else if (Math.abs(guess-rand) < 6 && Math.abs(guess-rand) >= 1) {
 				System.out.println("-----> chaud");
-				cpt++;
 			}
+			cpt++;
 			System.out.print("Enter un nombre : ");
 			guess = scanner.nextInt();
 		}
+		cpt++;
+
 		System.out.println("-----> gagné (" + cpt +" tentatives)");
 	}
 }
