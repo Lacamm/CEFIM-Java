@@ -86,6 +86,9 @@ public class Tp1 {
 		System.out.print("Saisir une année : ");
 		annee = scanner.nextInt();
 
+		/* Une année bissextile est
+		 - soit divisible par 4 mais pas par 100
+		 - soit divisible par 400 */
 		if ((annee % 4 == 0 && annee % 100 != 0) || annee % 400 == 0) {
 			System.out.println("L'année " + annee + " est bissextile");
 		} else {
