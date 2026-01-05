@@ -1,4 +1,4 @@
-import java.util.Random;
+// import java.util.Random;
 import java.util.Scanner;
 
 public class Tp1 {
@@ -17,7 +17,8 @@ public class Tp1 {
 		// exercice1_2();
 		// exercice2_1();
 		// exercice2_2();
-		exercice3_1();
+		// exercice3_1();
+		exercice4_1();
 
 		scanner.close();
 	}
@@ -119,5 +120,29 @@ public class Tp1 {
 		}
 		System.out.println("Le maximum vaut " + maxi + " (numéro " + indiceMaxi + ")"
 				+ ", le minimum vaut " + mini + " (numéro " + indiceMini + ")");
+	}
+
+	public static void exercice4_1() {
+		int rand = (int) (Math.random() * 101);
+		System.out.println(rand);
+		System.out.print("Enter un nombre : ");
+		int guess = scanner.nextInt();
+		int cpt = 0;
+
+		while (guess != rand) {
+			if (Math.abs(guess-rand) >= 20) {
+				System.out.println("-----> froid");
+				cpt++;
+			} else if (Math.abs(guess-rand) < 20 && Math.abs(guess-rand) >= 6) {
+				System.out.println("-----> tiède");
+				cpt++;
+			} else if (Math.abs(guess-rand) < 6 && Math.abs(guess-rand) >= 1) {
+				System.out.println("-----> chaud");
+				cpt++;
+			}
+			System.out.print("Enter un nombre : ");
+			guess = scanner.nextInt();
+		}
+		System.out.println("-----> gagné (" + cpt +" tentatives)");
 	}
 }
