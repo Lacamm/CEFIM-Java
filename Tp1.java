@@ -1,3 +1,4 @@
+
 // import java.util.Random;
 import java.util.Scanner;
 
@@ -18,7 +19,8 @@ public class Tp1 {
 		// exercice2_1();
 		// exercice2_2();
 		// exercice3_1();
-		exercice4_1();
+		// exercice4_1();
+		exercice4_2();
 
 		scanner.close();
 	}
@@ -71,13 +73,16 @@ public class Tp1 {
 
 		if (mot1.length() > mot2.length()) {
 			System.out.println(mot1 + " est le mot avec le plus de caractères.");
-		} else if (mot1.length() < mot2.length()){
+		} else if (mot1.length() < mot2.length()) {
 			System.out.println(mot2 + " est le mot avec le plus de caractères.");
 		} else if (mot1.length() == mot2.length()) {
 			System.out.println("Les 2 mots font la même longueur");
 		} else {
-			/* Cas impossible, j'aurai pu mettre juste else au dessus, mais je voulais mettre 
-			clairement le test de l'égalité */ 
+			/*
+			 * Cas impossible, j'aurai pu mettre juste else au dessus, mais je voulais
+			 * mettre
+			 * clairement le test de l'égalité
+			 */
 		}
 	}
 
@@ -87,9 +92,11 @@ public class Tp1 {
 		System.out.print("Saisir une année : ");
 		annee = scanner.nextInt();
 
-		/* Une année bissextile est
-		 - soit divisible par 4 mais pas par 100
-		 - soit divisible par 400 */
+		/*
+		 * Une année bissextile est
+		 * - soit divisible par 4 mais pas par 100
+		 * - soit divisible par 400
+		 */
 		if ((annee % 4 == 0 && annee % 100 != 0) || annee % 400 == 0) {
 			System.out.println("L'année " + annee + " est bissextile");
 		} else {
@@ -130,11 +137,11 @@ public class Tp1 {
 		int cpt = 0;
 
 		while (guess != rand) {
-			if (Math.abs(guess-rand) >= 20) {
+			if (Math.abs(guess - rand) >= 20) {
 				System.out.println("-----> froid");
-			} else if (Math.abs(guess-rand) < 20 && Math.abs(guess-rand) >= 6) {
+			} else if (Math.abs(guess - rand) < 20 && Math.abs(guess - rand) >= 6) {
 				System.out.println("-----> tiède");
-			} else if (Math.abs(guess-rand) < 6 && Math.abs(guess-rand) >= 1) {
+			} else if (Math.abs(guess - rand) < 6 && Math.abs(guess - rand) >= 1) {
 				System.out.println("-----> chaud");
 			}
 			cpt++;
@@ -143,6 +150,30 @@ public class Tp1 {
 		}
 		cpt++;
 
-		System.out.println("-----> gagné (" + cpt +" tentatives)");
+		System.out.println("-----> gagné (" + cpt + " tentatives)");
+	}
+
+	public static void exercice4_2() {
+		int rand = (int) (Math.random() * 101);
+		// System.out.println(rand); //Pour vérifier que mon code marche
+		System.out.print("Enter un nombre : ");
+		int guess = scanner.nextInt();
+		int cpt = 0;
+
+		do {
+			if (Math.abs(guess - rand) >= 20) {
+				System.out.println("-----> froid");
+			} else if (Math.abs(guess - rand) < 20 && Math.abs(guess - rand) >= 6) {
+				System.out.println("-----> tiède");
+			} else if (Math.abs(guess - rand) < 6 && Math.abs(guess - rand) >= 1) {
+				System.out.println("-----> chaud");
+			}
+			cpt++;
+			System.out.print("Enter un nombre : ");
+			guess = scanner.nextInt();
+		} while (guess != rand);
+		cpt++;
+
+		System.out.println("-----> gagné (" + cpt + " tentatives)");
 	}
 }
