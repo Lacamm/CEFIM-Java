@@ -12,7 +12,8 @@ public class Tp1 {
 		scanner = new Scanner(System.in);
 
 		// Appel de la méthode de l'exercice 1.1
-		exercice1_1();
+		// exercice1_1();
+		exercice1_2();
 
 		scanner.close();
 	}
@@ -23,7 +24,7 @@ public class Tp1 {
 		// 1° - Déclaration
 		String prenom;
 		String nom;
-		String age;
+		int age;
 		
 		// 2° - Initialisation
 		System.out.print("Prénom : ");
@@ -31,7 +32,7 @@ public class Tp1 {
 		System.out.print("Nom : ");
 		nom = scanner.next();
 		System.out.print("Age : ");
-		age = scanner.next();
+		age = scanner.nextInt();
 
 		// 3° - Utilisation
 		System.out.println("Bonjour " + prenom + " " + nom + " " + "(" + age + " ans) .");
@@ -39,7 +40,21 @@ public class Tp1 {
 
 	// Méthode de l'exercice n°1.2 
 	public static void exercice1_2() {
-		// ...
+		int x;
+		int y;
+		int tmp;
+
+		System.out.print("x : ");
+		x = scanner.nextInt();
+		
+		System.out.print("y : ");
+		y = scanner.nextInt();
+
+		tmp = x;
+		x = y;
+		y = tmp;
+
+		System.out.println("Les valeurs sont permutées, x vaut "+ x + " et y vaut " + y);
 	}
 
 }
