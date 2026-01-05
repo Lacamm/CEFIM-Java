@@ -70,8 +70,13 @@ public class Tp1 {
 
 		if (mot1.length() > mot2.length()) {
 			System.out.println(mot1 + " est le mot avec le plus de caractères.");
-		} else {
+		} else if (mot1.length() < mot2.length()){
 			System.out.println(mot2 + " est le mot avec le plus de caractères.");
+		} else if (mot1.length() == mot2.length()) {
+			System.out.println("Les 2 mots font la même longueur");
+		} else {
+			/* Cas impossible, j'aurai pu mettre juste else au dessus, mais je voulais mettre 
+			clairement le test de l'égalité */ 
 		}
 	}
 
