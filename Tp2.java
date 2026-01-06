@@ -10,7 +10,8 @@ public class Tp2 {
         // fibo();
         // fiboTab();
         // fibo3();
-        triComptage();
+        // triComptage();
+        triBulle();
 
         scanner.close();
     }
@@ -88,7 +89,7 @@ public class Tp2 {
     public static void triComptage() {
         int taille = 10;
         int[] tab = new int[taille];
-        int[] tabCompt = new int[taille+1];
+        int[] tabCompt = new int[taille + 1];
 
         for (int i = 0; i < taille; i++) {
             tab[i] = (int) (Math.random() * 11);
@@ -109,6 +110,29 @@ public class Tp2 {
 
         for (int i = 0; i < taille; i++) {
             System.out.print(tab[i] + " ");
+        }
+    }
+
+    public static void triBulle() {
+        int[] tab1 = { 4, 6, 2, 9, 67, 4, 32, 9, 87, 50 };
+        int[] tab2 = { 8, 5, 3, 5, 1, 9 };
+
+        // int[] tabTri = tab1;
+        int[] tabTri = tab2;
+
+        for (int i = 0; i < tabTri.length; i++) {
+            for (int y = 1; y < tabTri.length - i; y++) {
+                if (tabTri[y]<tabTri[y-1]) {
+                    int tmp1 = tabTri[y];
+                    int tmp2 = tabTri[y-1];
+                    tabTri[y] = tmp2;
+                    tabTri[y-1] = tmp1;
+                }
+            }
+        }
+
+        for (int i=0; i<tabTri.length; i++) {
+            System.out.print(tabTri[i] + " ");
         }
     }
 }
