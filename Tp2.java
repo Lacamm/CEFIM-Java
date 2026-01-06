@@ -9,7 +9,8 @@ public class Tp2 {
 
         // fibo();
         // fiboTab();
-        fibo3();
+        // fibo3();
+        triComptage();
 
         scanner.close();
     }
@@ -68,19 +69,46 @@ public class Tp2 {
         System.out.println("Fibo à F" + nombre + " = " + res[nombre]);
     }
 
-    public static void fibo3(){
+    public static void fibo3() {
         int nombre;
         System.out.print("Saisir un nombre : ");
         nombre = scanner.nextInt();
-        for (int i=2; i<=nombre; i++){
+        for (int i = 2; i <= nombre; i++) {
             System.out.print(fiboRecu(i) + " ");
         }
     }
 
     public static int fiboRecu(int val) {
-        if (val < 2){
+        if (val < 2) {
             return val;
         }
         return fiboRecu(val - 1) + fiboRecu(val - 2);
+    }
+
+    public static void triComptage() {
+        int taille = 10;
+        int[] tab = new int[taille];
+        int[] tabCompt = new int[taille+1];
+
+        for (int i = 0; i < taille; i++) {
+            tab[i] = (int) (Math.random() * 11);
         }
+
+        for (int i = 0; i < taille; i++) {
+            tabCompt[tab[i]]++;
+        }
+
+        int index = 0;
+        for (int i = 0; i < tabCompt.length; i++) {
+            while (tabCompt[i] > 0) {
+                tab[index] = i;
+                index++;
+                tabCompt[i]--;
+            }
+        }
+
+        for (int i = 0; i < taille; i++) {
+            System.out.print(tab[i] + " ");
+        }
+    }
 }
