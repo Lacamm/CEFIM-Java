@@ -106,8 +106,8 @@ public class Tp1 {
 
 	public static void exercice3_1() {
 		int rand;
-		int maxi;
-		int mini;
+		int maxi; // Integer.MIN_VALUE;
+		int mini; // Integer.MAX_VALUE;
 		int indiceMaxi = 1;
 		int indiceMini = 1;
 
