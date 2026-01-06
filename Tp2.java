@@ -7,7 +7,8 @@ public class Tp2 {
     public static void main(String[] args) {
         scanner = new Scanner(System.in);
 
-        fibo();
+        // fibo();
+        fiboTab();
 
         scanner.close();
     }
@@ -38,5 +39,30 @@ public class Tp2 {
             System.out.println(res);
         }
         System.out.println("Fibo à F" + nombre + " = " + res);
+    }
+
+    public static void fiboTab() {
+        int nombre;
+        int nb1 = 0;
+        int nb2 = 1;
+        System.out.print("Saisir un nombre : ");
+		nombre = scanner.nextInt();
+        int[] res = new int[nombre+1];
+
+        for (int i=0;i<=nombre;i++) {
+            if (i>0){
+                if (i==1){
+                    res[i] = 1;
+                } else {
+                    res[i] = nb1 + nb2;
+                    nb1 = nb2;
+                    nb2 = res[i];
+                }
+            } else {
+                res[i] = 0;
+            }
+        }
+        System.out.println(res[nombre]);
+        System.out.println("Fibo à F" + nombre + " = " + res[nombre]);
     }
 }
