@@ -11,7 +11,8 @@ public class Tp2 {
         // fiboTab();
         // fibo3();
         // triComptage();
-        triBulle();
+        // triBulle();
+        quickSort();
 
         scanner.close();
     }
@@ -122,17 +123,42 @@ public class Tp2 {
 
         for (int i = 0; i < tabTri.length; i++) {
             for (int y = 1; y < tabTri.length - i; y++) {
-                if (tabTri[y]<tabTri[y-1]) {
+                if (tabTri[y] < tabTri[y - 1]) {
                     int tmp1 = tabTri[y];
-                    int tmp2 = tabTri[y-1];
+                    int tmp2 = tabTri[y - 1];
                     tabTri[y] = tmp2;
-                    tabTri[y-1] = tmp1;
+                    tabTri[y - 1] = tmp1;
                 }
             }
         }
 
-        for (int i=0; i<tabTri.length; i++) {
+        for (int i = 0; i < tabTri.length; i++) {
             System.out.print(tabTri[i] + " ");
+        }
+    }
+
+    public static void quickSort() {
+        int[] tab = { 6, 3, 7, 9, 1, 5, 4 };
+
+        int indicePivot = tab.length - 1;
+        int indiceComparaison = 0;
+
+        while (indiceComparaison < indicePivot) {
+            if (tab[indicePivot] < tab[indiceComparaison]) {
+                int tmp = tab[indiceComparaison];
+                tab[indiceComparaison] = tab[indicePivot - 1];
+                tab[indicePivot - 1] = tab[indicePivot];
+                tab[indicePivot] = tmp;
+                indicePivot--;
+                System.out.println("Permutation");
+            } else {
+                indiceComparaison++;
+                System.out.println("Pas de permutation");
+            }
+            for (int i=0; i<tab.length; i++) {
+                System.out.print(tab[i] + " ");
+            }
+            System.out.println();
         }
     }
 }
