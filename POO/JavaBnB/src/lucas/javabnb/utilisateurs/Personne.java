@@ -12,6 +12,6 @@ public class Personne {
     }
 
     public void afficher() {
-        System.out.println(this.prenom + " " + this.nom + " (" + this.age + " ans)" );
+        System.out.print(this.prenom + " " + this.nom + " (" + this.age + " ans)" );
     }
 }
