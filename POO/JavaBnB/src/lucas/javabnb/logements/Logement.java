@@ -1,8 +1,9 @@
 package lucas.javabnb.logements;
 
 import lucas.javabnb.utilisateurs.Hote;
+import lucas.javabnb.utilisateurs.Personne;
 
-public class Logement {
+public abstract class Logement {
     private Hote hote;
     private int tarifParNuit;
     private String adresse;
@@ -21,6 +22,14 @@ public class Logement {
         return this.tarifParNuit;
     }
 
+    public int getNbVoyageurmax() {
+        return this.nbVoyageursMax;
+    }
+
+    public Personne getHote() {
+        return this.hote;
+    }
+
     protected String getAdresse() {
         return this.adresse;
     }
@@ -29,8 +38,5 @@ public class Logement {
         return this.superficie;
     }
 
-    public void afficher() {
-        System.out.println("Le logement est situé au " + this.adresse + ".");
-        System.out.println("Superficie : " + this.superficie + "m²");
-    }
+    public abstract void afficher();
 }
