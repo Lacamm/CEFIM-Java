@@ -33,7 +33,6 @@ public class Main {
         // Sejour sejour1 = new Sejour(date,4 , appart1, 1);
         // Sejour sejour2 = new Sejour(new Date(),4 , appart1, 1);
 
-
         // albert.afficher();
         // lucas.afficher();
         // henry.afficher();
@@ -46,13 +45,9 @@ public class Main {
 
         // sejour1.afficher();
 
-        try {
-            Sejour sejour3 = new Sejour(date1, 4, appart3, 1);
-            System.out.println("Séjour créé avec succès");
-            Reservation reservation1 = new Reservation(lucas, sejour3);
-            reservation1.afficher();
-        } catch (IllegalArgumentException e) {
-            System.out.println("Création refusée : " + e.getMessage());
-        }
+        Sejour sejour3 = new Sejour(date1, 4, appart3, 1);
+        Reservation reservation1 = new Reservation(lucas, sejour3);
+        reservation1.afficher();
+
     }
 }

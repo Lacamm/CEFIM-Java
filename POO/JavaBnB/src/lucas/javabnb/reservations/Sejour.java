@@ -15,35 +15,9 @@ public class Sejour implements Reservable {
         this.dateArrivee = dateArrivee;
         this.nbNuits = nbNuits;
         this.logement = logement;
-        this.nbVoyageurs = nbVoyageurs;
-        
-        if (!aUneDateArriveeCorrecte())
-            throw new IllegalArgumentException("La date d'arrivée est incorrecte");
-        if (!aUnNombreDeNuitsCorrect())
-            throw new IllegalArgumentException("Le nombre de nuits n'est pas correcte");
-        if (!aUnNombreDeVoyageursCorrect()) 
-            throw new IllegalArgumentException("Le nombre de voyageurs n'est pas correct");
-            
+        this.nbVoyageurs = nbVoyageurs;     
     }
 
-    @Override
-    public boolean aUneDateArriveeCorrecte() {
-        Long millis = System.currentTimeMillis();
-        Date date = new Date(millis);
-        return this.dateArrivee.after(date);
-    }
-
-    @Override
-    public boolean aUnNombreDeNuitsCorrect() {
-        return this.nbNuits > 1 && this.nbNuits <= 31;
-    }
-
-    @Override
-    public boolean aUnNombreDeVoyageursCorrect() {
-        return this.nbVoyageurs <= this.logement.getNbVoyageurmax();
-    }
-
-    @Override
     public void afficher() {
         System.out.println(
                 "La date d'arrivée et le " + formaterDate(this.dateArrivee) + " pour " + this.nbNuits + " nuits.");
@@ -56,5 +30,19 @@ public class Sejour implements Reservable {
 
     public Logement getLogement() {
         return this.logement;
+    }
+
+    public boolean aUneDateArriveeCorrecte() {
+        Long millis = System.currentTimeMillis();
+        Date date = new Date(millis);
+        return this.dateArrivee.after(date);
+    }
+
+    public boolean aUnNombreDeNuitsCorrect() {
+        return this.nbNuits > 1 && this.nbNuits <= 31;
+    }
+
+    public boolean aUnNombreDeVoyageursCorrect() {
+        return this.nbVoyageurs <= this.logement.getNbVoyageurmax();
     }
 }
