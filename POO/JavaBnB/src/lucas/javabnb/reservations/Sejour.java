@@ -5,23 +5,23 @@ import static lucas.javabnb.outils.Utile.*;
 
 import java.util.Date;
 
-public class Sejour implements Reservable {
+public abstract class Sejour implements Reservable {
     private Date dateArrivee;
     private int nbNuits;
     private Logement logement;
     private int nbVoyageurs;
+    protected int prix;
 
-    public Sejour(Date dateArrivee, int nbNuits, Logement logement, int nbVoyageurs) {
+    Sejour(Date dateArrivee, int nbNuits, Logement logement, int nbVoyageurs) {
         this.dateArrivee = dateArrivee;
         this.nbNuits = nbNuits;
         this.logement = logement;
-        this.nbVoyageurs = nbVoyageurs;     
+        this.nbVoyageurs = nbVoyageurs;
+
+        this.miseAJourDuPrixDuSejour();
     }
 
     public void afficher() {
-        System.out.println(
-                "La date d'arrivée et le " + formaterDate(this.dateArrivee) + " pour " + this.nbNuits + " nuits.");
-        System.out.println("Le prix de ce séjour est de " + this.logement.getTarifParNuit() + "€.");
     }
 
     public Date getDate() {
@@ -32,17 +32,19 @@ public class Sejour implements Reservable {
         return this.logement;
     }
 
+    public int getNbNuit() {
+        return this.nbNuits;
+    }
+
     public boolean aUneDateArriveeCorrecte() {
         Long millis = System.currentTimeMillis();
         Date date = new Date(millis);
         return this.dateArrivee.after(date);
     }
 
-    public boolean aUnNombreDeNuitsCorrect() {
-        return this.nbNuits > 1 && this.nbNuits <= 31;
+    public boolean aUnNombreDeVoyageursCorrect() {
+        return this.nbVoyageurs > 0 && this.nbVoyageurs <= this.logement.getNbVoyageurmax();
     }
 
-    public boolean aUnNombreDeVoyageursCorrect() {
-        return this.nbVoyageurs <= this.logement.getNbVoyageurmax();
-    }
+    public abstract void miseAJourDuPrixDuSejour();
 }

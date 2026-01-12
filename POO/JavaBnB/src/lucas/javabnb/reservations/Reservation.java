@@ -10,14 +10,21 @@ public class Reservation {
     private Voyageur voyageur;
     private Date dateDeReservation;
 
-    public Reservation(Voyageur voyageur, Reservable objetReservable) {
+    /**
+     * Crée une réservation si les excedptions sont passées
+     * @param voyageur
+     * @param objetReservable
+     * @throws Exception
+     */
+    public Reservation(Voyageur voyageur, Reservable objetReservable) throws Exception{
         try {
             validerReservation(objetReservable);
             this.voyageur = voyageur;
             this.objetReservable = objetReservable;
-            this.dateDeReservation = objetReservable.getDate();
+            this.dateDeReservation = new Date();
         } catch (Exception e) {
             System.err.println("Erreur lors de la réservation : " + e.getMessage());
+            throw e;
         }
     }
 
