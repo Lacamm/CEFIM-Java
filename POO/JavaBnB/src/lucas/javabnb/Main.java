@@ -48,13 +48,27 @@ public class Main {
 
         // sejour1.afficher();
 
-        Sejour sejour3 = new Sejour(date1, 4, appart3, 1);
-        Reservation reservation1 = new Reservation(lucas, sejour3);
-        reservation1.afficher();
+        // Sejour sejour3 = new Sejour(date1, 4, appart3, 1);
+        // Reservation reservation1 = new Reservation(lucas, sejour3);
+        // reservation1.afficher();
 
-        // SejourLong sejour4 = new SejourLong();
-        Sejour monSejour = SejourFactory.createSejour(date1, 13, maison1, 3);
-        Reservation reservation2 = new Reservation(lucas, monSejour);
-        reservation2.afficher();
+        try{
+            Sejour monSejour = SejourFactory.createSejour(date1, 13, maison1, 3);
+            Reservation reservation2 = new Reservation(lucas, monSejour);
+            reservation2.afficher();
+        } 
+        catch(Exception e) {
+            System.out.println(e);
+        }
+
+
+        try{
+            Sejour monSejour = SejourFactory.createSejour(date1, -4, maison1, 3);
+            Reservation reservation2 = new Reservation(lucas, monSejour);
+            reservation2.afficher();
+        } 
+        catch(Exception e) {
+            System.out.println(e);
+        }
     }
 }
