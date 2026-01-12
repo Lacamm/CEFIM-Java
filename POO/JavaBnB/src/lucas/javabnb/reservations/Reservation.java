@@ -15,7 +15,7 @@ public class Reservation {
             validerReservation(objetReservable);
             this.voyageur = voyageur;
             this.objetReservable = objetReservable;
-            this.dateDeReservation = objetReservable.getDate();
+            this.dateDeReservation = new Date();
         } catch (Exception e) {
             System.err.println("Erreur lors de la réservation : " + e.getMessage());
         }
