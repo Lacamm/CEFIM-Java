@@ -1,6 +1,8 @@
 package lucas.javabnb.utilisateurs;
 
-public class Personne {
+import java.util.Objects;
+
+public class Personne extends Object {
     private String prenom;
     private String nom;
     private int age;
@@ -11,7 +13,24 @@ public class Personne {
         this.age = age;
     }
 
+    public String getPrenom() {
+        return this.prenom;
+    }
+
     public void afficher() {
-        System.out.print(this.prenom + " " + this.nom + " (" + this.age + " ans)" );
+        System.out.print(this.prenom + " " + this.nom + " (" + this.age + " ans)");
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object)
+            return true;
+
+        if (object == null || getClass() != object.getClass())
+            return false;
+
+        Personne personne = (Personne) object;
+        return age == personne.age && Objects.equals(nom, personne.nom) &&
+                Objects.equals(prenom, personne.prenom);
     }
 }
