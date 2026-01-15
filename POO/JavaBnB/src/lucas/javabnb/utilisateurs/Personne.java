@@ -2,7 +2,9 @@ package lucas.javabnb.utilisateurs;
 
 import java.util.Objects;
 
-public class Personne extends Object {
+import lucas.javabnb.outils.Compare;
+
+public class Personne implements Compare{
     private String prenom;
     private String nom;
     private int age;
@@ -21,6 +23,10 @@ public class Personne extends Object {
         System.out.print(this.prenom + " " + this.nom + " (" + this.age + " ans)");
     }
 
+    public int getAge() {
+        return this.age;
+    }
+
     @Override
     public boolean equals(Object object) {
         if (this == object)
@@ -32,5 +38,9 @@ public class Personne extends Object {
         Personne personne = (Personne) object;
         return age == personne.age && Objects.equals(nom, personne.nom) &&
                 Objects.equals(prenom, personne.prenom);
+    }
+
+    public int getValueToCompare() {
+        return getAge();
     }
 }

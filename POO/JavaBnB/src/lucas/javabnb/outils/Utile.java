@@ -1,6 +1,9 @@
 package lucas.javabnb.outils;
 
 import java.util.Date;
+
+import lucas.javabnb.logements.Maison;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 

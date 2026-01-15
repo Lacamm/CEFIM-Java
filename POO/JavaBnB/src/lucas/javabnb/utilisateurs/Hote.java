@@ -1,6 +1,8 @@
 package lucas.javabnb.utilisateurs;
 
-public class Hote extends Personne{
+import lucas.javabnb.outils.Compare;
+
+public class Hote extends Personne implements Compare{
     private int delaiDeReponse;
 
     public Hote(String prenom, String nom, int age, int delaiDeReponse) {
@@ -31,5 +33,9 @@ public class Hote extends Personne{
 
         Hote hote = (Hote) o;
         return delaiDeReponse == hote.delaiDeReponse;
+    }
+
+    public int getValueToCompare() {
+        return this.delaiDeReponse;
     }
 }

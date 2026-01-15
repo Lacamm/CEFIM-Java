@@ -1,9 +1,10 @@
 package lucas.javabnb.logements;
 
+import lucas.javabnb.outils.Compare;
 import lucas.javabnb.utilisateurs.Hote;
 import lucas.javabnb.utilisateurs.Personne;
 
-public abstract class Logement {
+public abstract class Logement implements Compare{
     private Hote hote;
     private int tarifParNuit;
     private String adresse;
@@ -39,4 +40,8 @@ public abstract class Logement {
     }
 
     public abstract void afficher();
+
+    public int getValueToCompare() {
+        return getTarifParNuit();
+    }
 }
